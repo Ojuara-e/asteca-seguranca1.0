@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Asteca Segurança</title>
+    <meta name="description" content="Acesse sua área do aluno na Asteca Segurança e continue seus cursos de segurança do trabalho.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Side - Information -->
+        <div class="login-left">
+            <a href="index.html" style="color: white; text-decoration: none; margin-bottom: 2rem; display: inline-block;">
+                ← Voltar ao Site
+            </a>
+            
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="assets/hero-background.jpg" alt="Asteca Segurança" style="height: 80px; width: auto;">
+            </div>
+            
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; text-align: center;">Bem-vindo de volta!</h2>
+            <p style="font-size: 1.1rem; text-align: center; margin-bottom: 2rem; opacity: 0.9;">
+                Acesse sua área exclusiva e continue sua jornada de aprendizado em segurança do trabalho.
+            </p>
+            
+            <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem;">
+                <h3 style="color: #b8860b; margin-bottom: 1rem; text-align: center;">🎯 Sua Área do Aluno</h3>
+                <div style="display: grid; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <img src="assets/badge-safety-expert.png" alt="Cursos" style="width: 40px; height: 40px;">
+                        <div>
+                            <h4 style="margin: 0; font-size: 1rem;">Seus Cursos</h4>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Acesse todos os módulos de treinamento</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <img src="assets/trophy-team-ranking.png" alt="Progresso" style="width: 40px; height: 40px;">
+                        <div>
+                            <h4 style="margin: 0; font-size: 1rem;">Seu Progresso</h4>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Veja seu avanço e ranking da equipe</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <img src="assets/calendar-schedule.png" alt="Agendamento" style="width: 40px; height: 40px;">
+                        <div>
+                            <h4 style="margin: 0; font-size: 1rem;">Agendar Provas</h4>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">Marque sua prova prática no melhor horário</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;">
+                <h3 style="color: #ff6b35; margin-bottom: 1rem; text-align: center;">🏆 Sistema Gamificado</h3>
+                <p style="text-align: center; margin-bottom: 1rem; font-size: 0.95rem;">
+                    Ganhe pontos, conquiste badges e compete com sua equipe em um ambiente divertido e motivador!
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem;">🏅</div>
+                        <div style="font-size: 0.8rem;">Badges</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem;">📊</div>
+                        <div style="font-size: 0.8rem;">Ranking</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem;">🎁</div>
+                        <div style="font-size: 0.8rem;">Prêmios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Login Form -->
+        <div class="login-right">
+            <div class="login-form">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="assets/Logoverde-GRUPO.png" alt="Asteca Grupo" style="height: 60px; width: auto; margin-bottom: 1rem;">
+                    <h2 style="color: #2d5016; margin-bottom: 0.5rem;">Acesse sua conta</h2>
+                    <p style="color: #666; font-size: 1rem;">Entre com seus dados para acessar os cursos</p>
+                </div>
+                
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="seu@email.com"
+                               style="font-size: 16px; padding: 12px;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" required 
+                               placeholder="Sua senha"
+                               style="font-size: 16px; padding: 12px;">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 18px; padding: 12px;">
+                        Entrar
+                    </button>
+                </form>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="#" style="color: #2d5016; text-decoration: none; font-size: 0.9rem;">
+                        Esqueci minha senha
+                    </a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                    <p style="color: #666; margin-bottom: 1rem;">Ainda não tem uma conta?</p>
+                    <a href="https://wa.me/5547996950869?text=Olá Vanessa! Gostaria de me inscrever nos cursos da Asteca Segurança." 
+                       class="btn btn-secondary" style="width: 100%;">
+                        Falar com Vanessa
+                    </a>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
+                    <h4 style="color: #2d5016; margin-bottom: 0.5rem; font-size: 0.9rem;">Dados para Teste:</h4>
+                    <p style="margin: 0; font-size: 0.8rem; color: #666;">
+                        <strong>Email:</strong> teste@astecaseguranca.com.br<br>
+                        <strong>Senha:</strong> asteca2025
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation for demo
+            if (email === 'teste@astecaseguranca.com.br' && password === 'asteca2025') {
+                // Store login state
+                localStorage.setItem('asteca_logged_in', 'true');
+                localStorage.setItem('asteca_user_email', email);
+                
+                // Show success message
+                showLoginMessage('Login realizado com sucesso! Redirecionando...', 'success');
+                
+                // Redirect to dashboard after 1.5 seconds
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1500);
+            } else {
+                showLoginMessage('Email ou senha incorretos. Use os dados de teste fornecidos.', 'error');
+            }
+        }
+        
+        function showLoginMessage(message, type) {
+            // Remove existing messages
+            const existingMessage = document.querySelector('.login-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `login-message ${type}`;
+            messageDiv.textContent = message;
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                color: white;
+                font-weight: 500;
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+                ${type === 'success' ? 'background: #28a745;' : 'background: #dc3545;'}
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            // Remove message after 4 seconds
+            setTimeout(() => {
+                messageDiv.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 300);
+            }, 4000);
+        }
+        
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+            
+            .form-group input:focus {
+                border-color: #4a7c59 !important;
+                box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1) !important;
+            }
+            
+            @media (max-width: 768px) {
+                .login-container {
+                    flex-direction: column;
+                }
+                
+                .login-left {
+                    padding: 2rem 1rem;
+                }
+                
+                .login-right {
+                    padding: 2rem 1rem;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Asteca Segurança</title>
+    <meta name="description" content="Dashboard do aluno com cursos, progresso, ranking e agendamento de provas práticas.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <img src="assets/LogoAstecaSegurançadoTrabalho.jpeg" alt="Asteca Segurança" class="logo">
+            <ul class="nav-menu">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#cursos">Meus Cursos</a></li>
+                <li><a href="#ranking">Ranking</a></li>
+                <li><a href="#agendamento">Agendar Prova</a></li>
+                <li><a href="#" onclick="logout()" class="btn btn-secondary">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard">
+        <!-- Dashboard Header -->
+        <section class="dashboard-header">
+            <div class="container">
+                <h1 style="color: #2d5016; margin-bottom: 0.5rem;">Bem-vindo, <span id="userName">Aluno</span>! 👋</h1>
+                <p style="color: #666; font-size: 1.1rem;">Continue sua jornada de aprendizado em segurança do trabalho</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="dashboard" class="section">
+            <div class="container">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="completedCourses">3</div>
+                        <div class="stat-label">Cursos Concluídos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="userPoints">250</div>
+                        <div class="stat-label">Pontos Conquistados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="userLevel">3</div>
+                        <div class="stat-label">Nível Atual</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="teamRanking">2º</div>
+                        <div class="stat-label">Posição da Equipe</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="badgesCount">5</div>
+                        <div class="stat-label">Badges Conquistados</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="cursos" class="section" style="background: white;">
+            <div class="container">
+                <h2 class="section-title">Meus Cursos</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <img src="assets/badge-safety-expert.png" alt="NR-35" class="card-icon" style="width: 50px; height: 50px;">
+                            <span style="background: #28a745; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Concluído</span>
+                        </div>
+                        <h3>NR-35 - Trabalho em Altura</h3>
+                        <p>Curso completo sobre segurança em trabalhos em altura.</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #28a745;">
+                            <strong>100% Concluído</strong> • +50 pontos
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <img src="assets/calendar-schedule.png" alt="NR-10" class="card-icon" style="width: 50px; height: 50px;">
+                            <span style="background: #ffc107; color: #333; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Em Progresso</span>
+                        </div>
+                        <h3>NR-10 - Segurança em Eletricidade</h3>
+                        <p>Capacitação para trabalhos com eletricidade.</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #ffc107;">
+                            <strong>65% Concluído</strong> • Módulo 4 de 6
+                        </p>
+                        <a href="#" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Continuar Curso</a>
+                    </div>
+                    
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <img src="assets/trophy-team-ranking.png" alt="NR-18" class="card-icon" style="width: 50px; height: 50px;">
+                            <span style="background: #6c757d; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Não Iniciado</span>
+                        </div>
+                        <h3>NR-18 - Construção Civil</h3>
+                        <p>Segurança específica para canteiros de obras.</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #6c757d;">
+                            <strong>0% Concluído</strong> • Clique para iniciar
+                        </p>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Iniciar Curso</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking Section -->
+        <section id="ranking" class="section gamification-section">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">🏆 Ranking das Equipes</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <!-- Team Ranking -->
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;">
+                        <h3 style="color: #b8860b; text-align: center; margin-bottom: 1.5rem;">Ranking por Equipes</h3>
+                        <div class="ranking-list">
+                            <div class="ranking-item" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(255,215,0,0.2); border-radius: 8px;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 1.5rem;">🥇</span>
+                                    <div>
+                                        <strong>Equipe Construção A</strong>
+                                        <div style="font-size: 0.9rem; opacity: 0.8;">5 membros</div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.2rem; font-weight: bold;">1,250 pts</div>
+                                </div>
+                            </div>
+                            
+                            <div class="ranking-item" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(255,255,255,0.2); border-radius: 8px; border: 2px solid #b8860b;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 1.5rem;">🥈</span>
+                                    <div>
+                                        <strong>Sua Equipe - Pintores Pro</strong>
+                                        <div style="font-size: 0.9rem; opacity: 0.8;">4 membros</div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.2rem; font-weight: bold;">980 pts</div>
+                                </div>
+                            </div>
+                            
+                            <div class="ranking-item" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(205,127,50,0.2); border-radius: 8px;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 1.5rem;">🥉</span>
+                                    <div>
+                                        <strong>Equipe Operadores</strong>
+                                        <div style="font-size: 0.9rem; opacity: 0.8;">6 membros</div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 1.2rem; font-weight: bold;">750 pts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Individual Ranking -->
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;">
+                        <h3 style="color: #b8860b; text-align: center; margin-bottom: 1.5rem;">Top Alunos</h3>
+                        <div class="ranking-list">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(255,215,0,0.2); border-radius: 8px;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 1.2rem;">🥇</span>
+                                    <strong>João Silva</strong>
+                                </div>
+                                <div>320 pts</div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(255,255,255,0.2); border-radius: 8px; border: 2px solid #b8860b;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 1.2rem;">🥈</span>
+                                    <strong>Você</strong>
+                                </div>
+                                <div>250 pts</div>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; margin-bottom: 0.5rem; background: rgba(205,127,50,0.2); border-radius: 8px;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 1.2rem;">🥉</span>
+                                    <strong>Maria Santos</strong>
+                                </div>
+                                <div>180 pts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Badges Section -->
+                <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem;">
+                    <h3 style="color: #b8860b; text-align: center; margin-bottom: 1.5rem;">🏅 Seus Badges Conquistados</h3>
+                    <div class="badge-showcase">
+                        <div class="badge-item">
+                            <img src="assets/badge-safety-expert.png" alt="Especialista em Segurança" style="width: 60px; height: 60px;">
+                            <h4>Especialista em Segurança</h4>
+                            <p>Concluiu 3 cursos</p>
+                        </div>
+                        
+                        <div class="badge-item">
+                            <img src="assets/trophy-team-ranking.png" alt="Líder de Equipe" style="width: 60px; height: 60px;">
+                            <h4>Colaborador Exemplar</h4>
+                            <p>Ajudou colegas de equipe</p>
+                        </div>
+                        
+                        <div class="badge-item">
+                            <img src="assets/calendar-schedule.png" alt="Pontualidade" style="width: 60px; height: 60px;">
+                            <h4>Sempre Presente</h4>
+                            <p>100% de presença</p>
+                        </div>
+                        
+                        <div class="badge-item" style="opacity: 0.5;">
+                            <img src="assets/badge-safety-expert.png" alt="Mestre da Segurança" style="width: 60px; height: 60px;">
+                            <h4>Mestre da Segurança</h4>
+                            <p>Concluir todos os cursos</p>
+                            <small style="color: #ffc107;">🔒 Bloqueado</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scheduling Section -->
+        <section id="agendamento" class="section" style="background: white;">
+            <div class="container">
+                <h2 class="section-title">📅 Agendar Prova Prática</h2>
+                
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="background: #f8f9fa; border-radius: 12px; padding: 2rem; margin-bottom: 2rem;">
+                        <h3 style="color: #2d5016; text-align: center; margin-bottom: 1rem;">Selecione o Curso e Horário</h3>
+                        
+                        <form id="scheduleForm" onsubmit="handleScheduling(event)">
+                            <div class="form-group">
+                                <label for="course">Curso para Prova Prática:</label>
+                                <select id="course" name="course" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                    <option value="">Selecione um curso</option>
+                                    <option value="nr35">NR-35 - Trabalho em Altura</option>
+                                    <option value="nr10">NR-10 - Segurança em Eletricidade</option>
+                                    <option value="nr18">NR-18 - Construção Civil</option>
+                                    <option value="primeiros-socorros">Primeiros Socorros</option>
+                                    <option value="empilhadeira">Operador de Empilhadeira</option>
+                                </select>
+                            </div>
+                            
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div class="form-group">
+                                    <label for="date">Data:</label>
+                                    <input type="date" id="date" name="date" required 
+                                           style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;"
+                                           min="">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="time">Horário:</label>
+                                    <select id="time" name="time" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px;">
+                                        <option value="">Selecione um horário</option>
+                                        <option value="08:00">08:00 - Manhã</option>
+                                        <option value="09:00">09:00 - Manhã</option>
+                                        <option value="10:00">10:00 - Manhã</option>
+                                        <option value="14:00">14:00 - Tarde</option>
+                                        <option value="15:00">15:00 - Tarde</option>
+                                        <option value="16:00">16:00 - Tarde</option>
+                                        <option value="17:00">17:00 - Tarde</option>
+                                        <option value="09:00-sab">09:00 - Sábado</option>
+                                        <option value="10:00-sab">10:00 - Sábado</option>
+                                        <option value="11:00-sab">11:00 - Sábado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="notes">Observações (opcional):</label>
+                                <textarea id="notes" name="notes" rows="3" 
+                                         placeholder="Alguma observação especial para sua prova..."
+                                         style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 18px; padding: 15px;">
+                                📅 Agendar Prova Prática
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Scheduled Exams -->
+                    <div style="background: #e8f5e8; border-radius: 12px; padding: 1.5rem;">
+                        <h3 style="color: #2d5016; text-align: center; margin-bottom: 1rem;">📋 Suas Provas Agendadas</h3>
+                        
+                        <div id="scheduledExams">
+                            <div style="background: white; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid #28a745;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="margin: 0; color: #2d5016;">NR-35 - Trabalho em Altura</h4>
+                                        <p style="margin: 0.25rem 0; color: #666;">📅 15/02/2025 às 14:00</p>
+                                        <p style="margin: 0; font-size: 0.9rem; color: #28a745;">✅ Confirmado</p>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                                            Reagendar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; color: #666; font-style: italic;">
+                                Outras provas aparecerão aqui conforme você agendar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Set minimum date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        
+        // Load user data
+        document.addEventListener('DOMContentLoaded', function() {
+            const userEmail = localStorage.getItem('asteca_user_email');
+            if (userEmail) {
+                document.getElementById('userName').textContent = userEmail.split('@')[0];
+            }
+            
+            // Check if user is logged in
+            if (!localStorage.getItem('asteca_logged_in')) {
+                window.location.href = 'login.html';
+            }
+        });
+        
+        function handleScheduling(event) {
+            event.preventDefault();
+            
+            const course = document.getElementById('course').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Format date for display
+            const dateObj = new Date(date);
+            const formattedDate = dateObj.toLocaleDateString('pt-BR');
+            
+            // Show success message
+            showMessage(`Prova agendada com sucesso! 
+                        Curso: ${document.getElementById('course').selectedOptions[0].text}
+                        Data: ${formattedDate} às ${time}
+                        
+                        Você receberá uma confirmação por WhatsApp.`, 'success');
+            
+            // Reset form
+            document.getElementById('scheduleForm').reset();
+            
+            // Add to scheduled exams (in a real app, this would be saved to database)
+            addScheduledExam(course, formattedDate, time);
+        }
+        
+        function addScheduledExam(course, date, time) {
+            const courseNames = {
+                'nr35': 'NR-35 - Trabalho em Altura',
+                'nr10': 'NR-10 - Segurança em Eletricidade',
+                'nr18': 'NR-18 - Construção Civil',
+                'primeiros-socorros': 'Primeiros Socorros',
+                'empilhadeira': 'Operador de Empilhadeira'
+            };
+            
+            const examDiv = document.createElement('div');
+            examDiv.style.cssText = 'background: white; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid #ffc107;';
+            examDiv.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="margin: 0; color: #2d5016;">${courseNames[course]}</h4>
+                        <p style="margin: 0.25rem 0; color: #666;">📅 ${date} às ${time}</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #ffc107;">⏳ Aguardando confirmação</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                            Reagendar
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            const scheduledExams = document.getElementById('scheduledExams');
+            scheduledExams.insertBefore(examDiv, scheduledExams.lastElementChild);
+        }
+        
+        function logout() {
+            localStorage.removeItem('asteca_logged_in');
+            localStorage.removeItem('asteca_user_email');
+            window.location.href = 'index.html';
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `dashboard-message ${type}`;
+            messageDiv.innerHTML = message.replace(/\n/g, '<br>');
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 1.5rem;
+                border-radius: 12px;
+                color: white;
+                font-weight: 500;
+                z-index: 10000;
+                max-width: 400px;
+                animation: slideIn 0.3s ease;
+                ${type === 'success' ? 'background: linear-gradient(135deg, #28a745, #20c997);' : 'background: linear-gradient(135deg, #dc3545, #c82333);'}
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 300);
+            }, 5000);
+        }
+        
+        // Add some interactivity to progress bars
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+
